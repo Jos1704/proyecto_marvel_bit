@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\ComicController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InventarioController;
+use App\Http\Controllers\SucursalesController;
 use App\Http\Livewire\GuestController;
+use App\Http\Livewire\InventarioLiveWire;
+use Database\Seeders\SucursaleSeeder;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +20,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', GuestController::class);
+Route::get('/', GuestController::class)->name('home');
+Route::get('sucursales', [\App\Http\Controllers\SucursalesController::class, 'index'])->name('sucursales');
+Route::get('view-sucursales', [SucursalesController::class, 'show'])->name('view_sucursales');
+Route::get('add-sucursales', [SucursalesController::class, 'create'])->name('add_sucursales');
+Route::post('sucursales', [SucursalesController::class, 'store'])->name('sucursales.store');
 
-Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+Route::get('/comic/{id}', [ComicController::class, 'comic'])->name('comic');
+Route::get('comic-personaje', [ComicController::class, 'comicPersonaje']);
+
+Route::get('dashboard',InventarioLiveWire::class)->name('inventario');

@@ -7,16 +7,19 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet"></link>
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         @livewireStyles
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" crossorigin="anonymous"></script>
+        
         @yield('cssExtra')
     </head>
-    <body class="font-sans antialiased">
-        <x-jet-banner />
-        <div class="min-h-screen bg-gray-100">
+    <body class="bg-gray-800">
+        
+        <div class="min-h-screen">
             @livewire('navigation-menu')
             <!-- Page Heading -->
             @if (isset($header))
@@ -36,7 +39,7 @@
         @stack('modals')
 
         @livewireScripts
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         @yield('scripExtra')
     </body>
 </html>

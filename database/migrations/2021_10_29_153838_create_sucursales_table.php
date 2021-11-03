@@ -21,6 +21,7 @@ class CreateSucursalesTable extends Migration
             $table->json('hours');
             $table->integer('status');
             $table->integer('phone');
+            $table->string('img')->nullable();
             $table->timestamps();
         });
     }

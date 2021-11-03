@@ -16,6 +16,8 @@ mix.js('resources/js/app.js', 'public/js')
         require('postcss-import'),
         require('tailwindcss'),
     ]);
+mix.js('resources/js/inventario.js', 'public/js')
+mix.js('resources/js/comic.js', 'public/js')
 
 if (mix.inProduction()) {
     mix.version();

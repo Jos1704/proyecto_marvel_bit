@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Serie;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        $this->middleware('auth')->except('index', 'comic');
     }
 
     public function index(){
@@ -16,8 +17,4 @@ class HomeController extends Controller
         return view('guest.welcome');
     }
 
-    public function dashboard(){
-        //ruta para pagina de inicio login
-        return view('dashboard');
-    }
 }
